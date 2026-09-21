@@ -1,0 +1,4 @@
+Contact: mailto:support@getresultary.com
+Canonical: https://getresultary.com/.well-known/security.txt
+Policy: https://getresultary.com/security/
+Preferred-Languages: en
