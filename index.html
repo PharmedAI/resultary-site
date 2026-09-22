@@ -20,15 +20,33 @@
 <div class="preview-body"><div class="preview-alert"><strong>RUN RECEIVED — RESULT NOT VERIFIED</strong><span>The automation ran, but the expected Jira business result was not found.</span></div>
 <div class="preview-metrics"><div class="preview-metric"><small>Value at risk</small><b>CHF 12,000</b></div><div class="preview-metric"><small>Incident state</small><b>Confirming</b></div><div class="preview-metric"><small>Recovery</small><b>Pending</b></div><div class="preview-metric"><small>Owner</small><b>Operations</b></div></div></div>
 </div></div>
-<div class="container"><div class="pipeline"><div class="pipe"><strong>01 · Run</strong><span>Protected automation run signal received.</span></div><div class="pipe"><strong>02 · Verify</strong><span>Configured Jira evidence is checked independently.</span></div><div class="pipe"><strong>03 · Confirm</strong><span>Possible failure is confirmed before escalation.</span></div><div class="pipe"><strong>04 · Incident</strong><span>Persistent failure becomes actionable in Jira.</span></div><div class="pipe"><strong>05 · Recover</strong><span>The expected result returns and recovery is verified.</span></div><div class="pipe"><strong>06 · Prove</strong><span>Recovery history and estimated value protected are recorded.</span></div></div></div></section>
+<div class="container"><div class="journey" aria-label="Resultary assurance flow">
+<div class="journey-step"><span class="journey-number">01</span><strong>Run</strong><span>Receive the protected automation signal.</span></div>
+<div class="journey-step"><span class="journey-number">02</span><strong>Verify</strong><span>Check the Jira evidence that represents success.</span></div>
+<div class="journey-step"><span class="journey-number">03</span><strong>Confirm</strong><span>Separate a real failure from one-off noise.</span></div>
+<div class="journey-step"><span class="journey-number">04</span><strong>Incident</strong><span>Make persistent failure actionable in Jira.</span></div>
+<div class="journey-step"><span class="journey-number">05</span><strong>Recover</strong><span>Verify that the expected result returned.</span></div>
+<div class="journey-step"><span class="journey-number">06</span><strong>Prove</strong><span>Keep the recovery and value history visible.</span></div>
+</div></div></section>
 
 <section class="section"><div class="container"><span class="eyebrow">Two signals, one clear answer</span><h2>Automation success should mean the expected result happened.</h2><p class="section-intro">Resultary separates execution from outcome. You can see whether the rule ran and whether the Jira evidence that represents success actually appeared.</p>
 <div class="split"><div class="comparison success"><div class="label">Level 1 · Run assurance</div><div class="state"><span class="check">✓</span> Successful run</div><p>The rule reached its run path and sent its Resultary signal.</p></div><div class="comparison warning"><div class="label">Level 2 · Business-result assurance</div><div class="state"><span class="warn">!</span> Outcome missing</div><p>The expected field change, ticket, status or matching Jira evidence is not there. Resultary keeps the two signals separate.</p></div></div></div></section>
 
 <section class="section"><div class="container"><span class="eyebrow">When something goes wrong</span><h2>Turn a missing result into a clear next action.</h2><p class="section-intro">Once Resultary confirms the expected Jira outcome is missing, it helps the right people act and keeps the failure visible until recovery.</p>
-<div class="grid four"><div class="card"><div class="icon">!</div><h3>Confirm the failure</h3><p>Reduce one-off noise before a persistent issue becomes an incident.</p></div><div class="card"><div class="icon">↗</div><h3>Escalate clearly</h3><p>Use ownership, reminders and escalation so unresolved failures stay visible.</p></div><div class="card"><div class="icon">$</div><h3>Show business impact</h3><p>Add value context so teams can prioritize what matters most.</p></div><div class="card"><div class="icon">↺</div><h3>Verify recovery</h3><p>Close the loop only when the expected Jira result returns.</p></div></div></div></section>
+<div class="action-steps">
+<div class="action-step"><span class="action-symbol">!</span><div><h3>Confirm the failure</h3><p>Reduce one-off noise before a persistent issue becomes an incident.</p></div></div>
+<div class="action-step"><span class="action-symbol">↗</span><div><h3>Escalate clearly</h3><p>Use ownership, reminders and escalation so unresolved failures stay visible.</p></div></div>
+<div class="action-step"><span class="action-symbol">$</span><div><h3>Show business impact</h3><p>Add value context so teams can prioritize what matters most.</p></div></div>
+<div class="action-step"><span class="action-symbol">↺</span><div><h3>Verify recovery</h3><p>Close the loop only when the expected Jira result returns.</p></div></div>
+</div></div></section>
 
-<section class="section"><div class="container"><span class="eyebrow">Built for</span><h2>Teams that rely on Jira automation every day.</h2><div class="grid four"><div class="card"><h3>Jira administrators</h3><p>Protect critical rules without changing the automation itself.</p></div><div class="card"><h3>Operations teams</h3><p>See what failed, who owns it and whether it recovered.</p></div><div class="card"><h3>Service & IT teams</h3><p>Track failures across tickets, queues, statuses and handoffs.</p></div><div class="card"><h3>Business owners</h3><p>Add value context so teams can prioritize the failures that matter.</p></div></div></div></section>
+<section class="section"><div class="container"><span class="eyebrow">Built for</span><h2>Teams that rely on Jira automation every day.</h2>
+<div class="audience-grid">
+<div class="audience"><span>01</span><h3>Jira administrators</h3><p>Protect critical rules without changing the automation itself.</p></div>
+<div class="audience"><span>02</span><h3>Operations teams</h3><p>See what failed, who owns it and whether it recovered.</p></div>
+<div class="audience"><span>03</span><h3>Service & IT teams</h3><p>Track failures across tickets, queues, statuses and handoffs.</p></div>
+<div class="audience"><span>04</span><h3>Business owners</h3><p>Add value context so teams can prioritize the failures that matter.</p></div>
+</div></div></section>
 
 <section class="section"><div class="container"><span class="eyebrow">Trust</span><h2>Designed to be easy to evaluate before you install.</h2><div class="trust-strip"><div class="trust-item"><strong>Built on Atlassian Forge</strong><span>Core app compute and persistent app state use Atlassian Forge.</span></div><div class="trust-item"><strong>No automation-rule editing</strong><span>Resultary does not enable, disable, modify or delete Jira Automation rules.</span></div><div class="trust-item"><strong>Optional egress only</strong><span>Slack or Microsoft Teams notifications are used only when an administrator configures them.</span></div><div class="trust-item"><strong>Published trust details</strong><span>Security, privacy, permissions and data handling are documented publicly.</span></div></div><div class="actions"><a class="button secondary" href="/trust/">Open Trust Center</a><a class="button secondary" href="/security/">Security details</a></div></div></section>
 
