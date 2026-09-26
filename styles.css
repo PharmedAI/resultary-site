@@ -199,3 +199,16 @@ footer{padding:38px 0 58px;border-top:1px solid rgba(255,255,255,.07);color:var(
 .text-link:hover{text-decoration:underline}
 .preview-note{display:block;margin-top:10px;color:var(--muted);font-size:.74rem;line-height:1.45}
 @media(max-width:680px){.actions .button{width:100%}.actions .text-link{width:100%;justify-content:center}.nav-cta{white-space:nowrap}}
+
+/* Universal platform positioning: each status describes availability, not a released feature. */
+.platform-grid{align-items:stretch}
+.platform-card{display:flex;flex-direction:column;min-height:275px;border-color:var(--line-strong)}
+.platform-card h3{font-size:1.45rem;margin:14px 0 2px}
+.platform-card p{margin:0 0 18px;flex:1}
+.platform-card .text-link{margin-top:auto}
+.platform-status{align-self:flex-start;display:inline-flex;border:1px solid #45607e;border-radius:999px;padding:4px 11px;font-size:.75rem;font-weight:850;letter-spacing:.02em;color:var(--accent2)}
+.platform-status.available{border-color:#32765e;color:#a1f2ca;background:rgba(16,85,55,.17)}
+.platform-status.upcoming{border-color:#6c5d3f;color:#ffe0a0;background:rgba(102,76,27,.15)}
+.platform-status.planned{color:var(--muted)}
+@media(max-width:960px){.platform-grid{grid-template-columns:repeat(2,1fr)!important}}
+@media(max-width:560px){.platform-grid{grid-template-columns:1fr!important}.platform-card{min-height:unset}}
