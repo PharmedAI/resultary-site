@@ -190,3 +190,14 @@
 .v2-product-trust-aside p{margin-bottom:0}
 @media(max-width:950px){.v2-product-hero-grid,.v2-product-evidence-grid,.v2-product-trust-grid{grid-template-columns:1fr;gap:44px}.v2-product-visual{max-width:630px}.v2-product-hero{padding:83px 0}}
 @media(max-width:680px){.v2-product-hero{padding:70px 0}.v2-product-hero h1{font-size:clamp(2.75rem,9vw,4.2rem)}.v2-business-grid{grid-template-columns:1fr}}
+
+
+/* Shared editorial polish for existing Trust, Docs, FAQ and legal pages. */
+.site-v2 .page{padding-top:96px;padding-bottom:118px;background:radial-gradient(ellipse at 100% 0%,rgba(24,64,105,.13),transparent 47%)}
+.site-v2 .page h1{font-size:clamp(2.6rem,5.5vw,4.9rem);max-width:950px;line-height:1.12}
+.site-v2 .page>.container>.eyebrow,.site-v2 .copy>.eyebrow{border-color:rgba(139,182,218,.24);background:rgba(20,50,82,.33);color:#b1d9ef}
+.site-v2 .page .lead{font-size:1.12rem;line-height:1.85;color:#b5c6d8}
+.site-v2 .page .card,.site-v2 .page details{border-color:rgba(139,176,215,.21);background:linear-gradient(146deg,rgba(22,43,66,.78),rgba(11,26,45,.72))}
+.site-v2 .page .copy p,.site-v2 .page .copy li{color:#b1c3d6;line-height:1.82}
+.site-v2 .page a:not(.button):not(.text-link){text-underline-offset:3px}
+@media(max-width:680px){.site-v2 .page{padding-top:65px;padding-bottom:86px}}
