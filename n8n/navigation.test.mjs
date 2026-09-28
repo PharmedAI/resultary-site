@@ -10,6 +10,8 @@ const pages=[
   'product/index.html','integrations/index.html','trust/index.html',
   'docs/index.html','faq/index.html','support/index.html',
   'security/index.html','privacy/index.html','terms/index.html','404.html',
+  'n8n/demo/index.html','n8n/workflow-success-no-result/index.html',
+  'n8n/monitor-workflows/index.html',
 ];
 const navLinks=[
   ['Home','/'],['For Jira','/product/'],['For n8n','/n8n/'],
