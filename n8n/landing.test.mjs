@@ -36,7 +36,8 @@ test('separate n8n page offers an honest direct credential-free download',()=>{
   assert.match(page,/Public self-service activation is not live yet/);
   assert.match(page,/importable template, not an installed or activated application/);
   assert.match(homepage,/>For Jira<\/a><a href="\/n8n\/">For n8n<\/a>/);
-  assert.doesNotMatch(page,/<nav[^>]*>[^]*For Jira/);
+  assert.match(page,/<nav aria-label="Primary navigation">[^]*href="\/product\/">For Jira/);
+  assert.match(page,/<a class="brand" href="\/" aria-label="Resultary home">/);
   assert.equal(workflow.active,false);
   assert.ok(workflow.nodes.some(node=>node.type==='n8n-nodes-base.httpRequest'));
   assert.ok(workflow.nodes.filter(node=>node.type==='n8n-nodes-base.httpRequest').every(node=>node.parameters.url.includes('REPLACE_WITH_YOUR_PRIVATE_RESULTARY_HOST')));
@@ -46,8 +47,8 @@ test('separate n8n page offers an honest direct credential-free download',()=>{
 
 test('Get started chooses the right edition rather than silently redirecting to Jira',()=>{
   const chooser=readFileSync(new URL('../start/index.html',import.meta.url),'utf8');
-  assert.match(homepage,/class="nav-cta" href="\/start\/">Get started/);
-  assert.match(integration,/class="nav-cta" href="\/start\/">Get started/);
+  assert.match(homepage,/href="\/start\/" class="nav-cta">Get started/);
+  assert.match(integration,/href="\/start\/" class="nav-cta">Get started/);
   assert.match(chooser,/href="\/product\/">Get started with Jira/);
   assert.match(chooser,/href="\/n8n\/resultary-n8n-starter.json" download/);
   assert.match(chooser,/href="\/n8n\/">View n8n setup/);
