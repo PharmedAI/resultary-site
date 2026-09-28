@@ -43,3 +43,14 @@ test('separate n8n page offers an honest direct credential-free download',()=>{
   assert.ok(workflow.nodes.every(node=>!node.credentials));
   assert.doesNotMatch(JSON.stringify(workflow),/Bearer [A-Za-z0-9]{20,}|github_pat_/);
 });
+
+test('Get started chooses the right edition rather than silently redirecting to Jira',()=>{
+  const chooser=readFileSync(new URL('../start/index.html',import.meta.url),'utf8');
+  assert.match(homepage,/class="nav-cta" href="\/start\/">Get started/);
+  assert.match(integration,/class="nav-cta" href="\/start\/">Get started/);
+  assert.match(chooser,/href="\/product\/">Get started with Jira/);
+  assert.match(chooser,/href="\/n8n\/resultary-n8n-starter.json" download/);
+  assert.match(chooser,/href="\/n8n\/">View n8n setup/);
+  assert.match(chooser,/inactive, unconfigured workflow template/);
+  assert.match(sitemap,/<loc>https:\/\/getresultary\.com\/start\/<\/loc>/);
+});
