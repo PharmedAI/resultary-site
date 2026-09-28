@@ -219,3 +219,14 @@
   .site-header .v2-nav nav a{font-size:.81rem}
   .edition-subnav{gap:12px}
 }
+
+/* Override legacy stylesheet rules that hid navigation items on phones:
+   edition switching must remain available at EVERY viewport. */
+@media(max-width:960px){
+  .site-v2 .site-header .v2-nav nav a{display:inline-flex!important;align-items:center}
+  .site-v2 .edition-footer-links a{display:inline-flex!important}
+}
+@media(max-width:680px){
+  .site-v2 .site-header .v2-nav nav a:not(.nav-cta){display:inline-flex!important}
+  .site-v2 .edition-footer-links a:not(.nav-cta){display:inline-flex!important}
+}
