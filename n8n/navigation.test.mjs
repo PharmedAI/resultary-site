@@ -51,3 +51,12 @@ test('product pages make it possible to move between Jira and n8n without relyin
   assert.match(jira,/<a class="brand" href="\/" aria-label="Resultary home">/);
   assert.match(n8n,/<a class="brand" href="\/" aria-label="Resultary home">/);
 });
+
+test('responsive CSS keeps Jira, n8n and return navigation visible even on mobile',()=>{
+  const modern=pageHtml('site-v2.css');
+  const legacy=pageHtml('styles.css');
+  assert.match(legacy,/nav a:not\(\.nav-cta\)\{display:none\}/);
+  assert.match(modern,/\.site-v2 \.site-header \.v2-nav nav a:not\(\.nav-cta\)\{display:inline-flex!important\}/);
+  assert.match(modern,/\.site-v2 \.edition-footer-links a:not\(\.nav-cta\)\{display:inline-flex!important\}/);
+  for(const page of pages)assert.match(pageHtml(page),/site-v2(?:\.css|"| )/,page);
+});
