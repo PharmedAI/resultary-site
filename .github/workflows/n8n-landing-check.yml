@@ -4,7 +4,7 @@ on:
     branches: [main]
     paths: ['n8n/**', 'start/**', 'integrations/index.html', 'index.html', 'product/**', 'trust/**', 'docs/**', 'faq/**', 'security/**', 'privacy/**', 'terms/**', 'support/**', '404.html', 'site-v2.css', 'sitemap.xml', '.github/workflows/n8n-landing-check.yml']
   pull_request:
-    paths: ['n8n/**', 'start/**', 'integrations/index.html', 'index.html', 'sitemap.xml', '.github/workflows/n8n-landing-check.yml']
+    paths: ['n8n/**', 'start/**', 'integrations/index.html', 'index.html', 'product/**', 'trust/**', 'docs/**', 'faq/**', 'security/**', 'privacy/**', 'terms/**', 'support/**', '404.html', 'site-v2.css', 'sitemap.xml', '.github/workflows/n8n-landing-check.yml']
 permissions:
   contents: read
 jobs:
