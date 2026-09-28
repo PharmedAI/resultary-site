@@ -55,3 +55,17 @@ test('Get started chooses the right edition rather than silently redirecting to 
   assert.match(chooser,/inactive, unconfigured workflow template/);
   assert.match(sitemap,/<loc>https:\/\/getresultary\.com\/start\/<\/loc>/);
 });
+
+test('targeted SEO troubleshooting guide offers actionable value without claiming live n8n SaaS',()=>{
+  const guide=readFileSync(new URL('./workflow-success-no-result/index.html',import.meta.url),'utf8');
+  assert.match(page,/href="\/n8n\/workflow-success-no-result\/"/);
+  assert.match(sitemap,/https:\/\/getresultary\.com\/n8n\/workflow-success-no-result\//);
+  assert.match(guide,/Inspect the actual execution path/);
+  assert.match(guide,/Check the destination directly/);
+  assert.match(guide,/delayed results and transient errors/);
+  assert.match(guide,/Missing scheduled execution signal/i);
+  assert.match(guide,/href="\/n8n\/demo\/"/);
+  assert.match(guide,/href="\/n8n\/#apply"/);
+  assert.match(guide,/not publicly available yet/);
+  assert.match(guide,/href="\/product\/">For Jira/);
+});
