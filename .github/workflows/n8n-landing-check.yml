@@ -1,0 +1,19 @@
+name: Resultary n8n landing checks
+on:
+  push:
+    branches: [main]
+    paths: ['n8n/**', 'integrations/index.html', '.github/workflows/n8n-landing-check.yml']
+  pull_request:
+    paths: ['n8n/**', 'integrations/index.html', '.github/workflows/n8n-landing-check.yml']
+permissions:
+  contents: read
+jobs:
+  static-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check n8n/apply.js
+      - run: node --test n8n/landing.test.mjs

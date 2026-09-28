@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#07101c"><meta name="description" content="Apply to test Resultary for n8n. Independently check whether your automation achieved its expected result. Invitation-only private beta, no production commitment.">
+<meta property="og:type" content="website"><meta property="og:title" content="Resultary for n8n — apply for private beta"><meta property="og:description" content="Verify actual automation outcomes. Join Resultary's invitation-only n8n beta.">
+<meta property="og:url" content="https://getresultary.com/n8n/"><link rel="canonical" href="https://getresultary.com/n8n/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/site-v2.css">
+<title>Resultary for n8n | Private beta application</title>
+<style>
+.n8n-main{max-width:1050px;padding:44px 24px 95px;margin:auto}.n8n-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,.9fr);gap:42px;align-items:start}
+.n8n-kicker{text-transform:uppercase;letter-spacing:.16em;color:#6cdaba;font-size:13px;font-weight:800}.n8n-main h1{font-size:clamp(32px,5vw,58px);line-height:1.1;margin:18px 0}.n8n-main h2{font-size:clamp(23px,3vw,32px);line-height:1.3}.n8n-main p,.n8n-main li{line-height:1.7}
+.n8n-panel{background:#152238;border:1px solid #40536a;border-radius:18px;padding:clamp(22px,3vw,35px)}.n8n-panel label{display:block;font-weight:650;margin:16px 0 7px}
+.n8n-panel input,.n8n-panel select,.n8n-panel textarea{display:block;width:100%;border:1px solid #8494a8;border-radius:9px;padding:12px;font:inherit;background:#0c192b;color:#f5f9ff}
+.n8n-panel textarea{min-height:93px}.n8n-panel button{background:#80edbd;color:#10261b;padding:13px 19px;border:0;border-radius:9px;font:inherit;font-weight:800;cursor:pointer;margin-top:16px}
+.n8n-panel small{display:block;margin:13px 0;color:#bdcadb;line-height:1.5}.n8n-info{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:54px 0}
+.n8n-info article{border:1px solid #40536a;border-radius:14px;padding:23px;background:#142037}.n8n-info strong{display:block;margin-bottom:10px;font-size:18px}.n8n-info p{margin:0}
+.n8n-warning{border-left:3px solid #e2c279;background:#272732;padding:13px 18px;border-radius:3px}.n8n-result{min-height:24px}
+@media(max-width:770px){.n8n-grid{grid-template-columns:1fr}.n8n-info{grid-template-columns:1fr}}
+</style><script src="/n8n/apply.js" defer></script>
+</head><body class="site-v2">
+<a class="skip-link" href="#main">Skip to content</a><header class="site-header"><div class="container nav v2-nav">
+<a class="brand" href="/" aria-label="Resultary home"><span class="mark">R</span><span>resultary<span class="brand-dot">.</span></span></a><nav aria-label="Primary navigation"><a href="/product/">For Jira</a><a href="/integrations/">Integrations</a><a href="/trust/">Trust</a><a class="nav-cta" href="#apply">Apply for n8n beta</a></nav></div></header>
+<main class="n8n-main" id="main"><section class="n8n-grid" aria-labelledby="heading">
+<div><span class="n8n-kicker">Resultary for n8n · Invitation only</span><h1 id="heading">Your automation ran. Did it actually work?</h1>
+<p>Resultary is designed to check the expected result in a separately authorized destination—not simply trust a successful n8n execution. See what ran, what was independently confirmed and which expected signals are missing.</p>
+<p class="n8n-warning"><strong>Current availability:</strong> applications for a limited private beta are open. The n8n customer beta is not yet deployed, and its planned community node is not yet published or certified. Please use a disposable test workflow, never a production workflow, during first onboarding.</p>
+<h2>What happens next?</h2><p>Apply using the short form. If your use case suits our initial integrations, we'll contact you to agree on an authorized test destination and provide private instructions. Invitations are issued manually while we validate safety and installation simplicity.</p>
+<p><a href="/trust/">Security and trust</a> · <a href="/privacy/">Privacy policy</a> · <a href="/integrations/">Other integrations</a></p></div>
+<section class="n8n-panel" id="apply" aria-labelledby="apply-title"><h2 id="apply-title">Apply for private n8n beta</h2>
+<form id="beta-form"><label for="email">Work email</label><input id="email" type="email" required maxlength="150" autocomplete="email" placeholder="you@company.com">
+<label for="hosting">How do you use n8n?</label><select id="hosting" required><option value="">Choose one</option><option value="n8n Cloud">n8n Cloud</option><option value="Self-hosted n8n">Self-hosted n8n</option><option value="Both">Both</option></select>
+<label for="destination">Which result would you like verified?</label><select id="destination" required><option value="">Choose one</option><option value="GitHub issue or record">GitHub issue or record</option><option value="CRM record">CRM record</option><option value="Spreadsheet or database">Spreadsheet or database</option><option value="API result in another system">API result in another system</option><option value="Other">Other</option></select>
+<label for="example">Optional: briefly describe your use case (no secrets)</label><textarea id="example" maxlength="400" placeholder="When n8n creates a CRM deal, independently check that it exists."></textarea>
+<label><input id="consent" type="checkbox" required style="display:inline;width:auto;margin-right:7px">I agree to contact regarding this beta application.</label>
+<button type="submit">Prepare email application</button>
+<p id="apply-status" role="status" aria-live="polite" class="n8n-result"></p>
+<small><strong>Important:</strong> submitting opens your email app with a prepared message. You must send the message yourself; this site does not silently collect or store your submission. Do not include tokens, private workflow content or personal customer data.</small></form></section>
+</section><section class="n8n-info" aria-label="How private beta works"><article><strong>1. Get invited</strong><p>Receive a one-time private invitation when an appropriate test configuration is approved.</p></article><article><strong>2. Connect n8n</strong><p>Import a preconfigured test workflow and choose a separate n8n credential. No code to copy.</p></article><article><strong>3. Check real outcomes</strong><p>Review scoped signals and results only after an authorized destination is separately configured.</p></article></section></main>
+<footer class="v2-footer"><div class="container"><p>© 2026 Resultary. n8n is a trademark of its respective owner. Resultary is independent of n8n.</p><p><a href="/privacy/">Privacy</a> · <a href="/support/">Support</a></p></div></footer></body></html>
