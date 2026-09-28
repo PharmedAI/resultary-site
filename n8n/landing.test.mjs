@@ -4,6 +4,8 @@ import {readFileSync} from 'node:fs';
 const page=readFileSync(new URL('./index.html',import.meta.url),'utf8');
 const script=readFileSync(new URL('./apply.js',import.meta.url),'utf8');
 const integration=readFileSync(new URL('../integrations/index.html',import.meta.url),'utf8');
+const homepage=readFileSync(new URL('../index.html',import.meta.url),'utf8');
+const sitemap=readFileSync(new URL('../sitemap.xml',import.meta.url),'utf8');
 test('n8n landing clearly marks availability and provides honest application',()=>{
   assert.match(page,/applications for a limited private beta are open/i);
   assert.match(page,/not yet deployed/i);
@@ -13,6 +15,8 @@ test('n8n landing clearly marks availability and provides honest application',()
   assert.match(page,/required/);
   assert.match(page,/href="\/privacy\//);
   assert.match(integration,/href="\/n8n\/"[^>]*>Apply for n8n beta/);
+  assert.match(homepage,/href="\/n8n\/" class="v2-platform-link">Apply for n8n beta/);
+  assert.match(sitemap,/<loc>https:\/\/getresultary\.com\/n8n\/<\/loc>/);
   assert.doesNotMatch(page,/Guaranteed ROI|certified now|instant activation/i);
 });
 test('email application is explicitly user submitted and contains no covert tracking',()=>{
