@@ -69,3 +69,14 @@ test('targeted SEO troubleshooting guide offers actionable value without claimin
   assert.match(guide,/not publicly available yet/);
   assert.match(guide,/href="\/product\/">For Jira/);
 });
+
+test('low-friction beta application has optional qualification and copy fallback', () => {
+  assert.match(page, /id="email" type="email" required/);
+  assert.match(page, /id="consent" type="checkbox" required/);
+  assert.match(page, /id="hosting"><option value="">Not sure yet/);
+  assert.match(page, /id="destination"><option value="">Not sure yet/);
+  assert.match(page, /id="copy-application"/);
+  assert.match(script, /navigator\.clipboard\?\.writeText/);
+  assert.match(script, /support@getresultary\.com/);
+  assert.doesNotMatch(script, /fetch\(|XMLHttpRequest|localStorage|sessionStorage|innerHTML/);
+});
