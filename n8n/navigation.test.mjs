@@ -44,7 +44,7 @@ test('product pages make it possible to move between Jira and n8n without relyin
   assert.match(jiraSwitch??'',/href="\/n8n\/">Switch to n8n/);
   assert.match(n8nSwitch??'',/href="\/product\/">Switch to Jira/);
   assert.match(n8nSwitch??'',/href="\/start\/">← All editions/);
-  assert.match(n8nSwitch??'',/href="#install">Download n8n starter/);
+  assert.match(n8nSwitch??'',/href="#install">Download starter/);
   assert.match(n8nSwitch??'',/href="#apply">n8n private beta/);
   assert.match(n8n,/id="install"/);
   assert.match(n8n,/id="apply"/);

@@ -15,7 +15,7 @@ test('n8n landing clearly marks availability and provides honest application',()
   assert.match(page,/required/);
   assert.match(page,/href="\/privacy\//);
   assert.match(integration,/href="\/n8n\/"[^>]*>Apply for n8n beta/);
-  assert.match(homepage,/href="\/n8n\/" class="v2-platform-link">Explore the n8n edition/);
+  assert.match(homepage,/href="\/n8n\/demo\/" class="v2-platform-link">See n8n 30-second example/);
   assert.match(homepage,/href="\/n8n\/resultary-n8n-starter.json" download="resultary-n8n-starter.json" class="v2-platform-link">Download free n8n starter JSON/);
   assert.match(homepage,/Download free n8n starter JSON/);
   assert.match(sitemap,/<loc>https:\/\/getresultary\.com\/n8n\/<\/loc>/);
