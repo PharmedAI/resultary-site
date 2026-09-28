@@ -80,3 +80,14 @@ test('low-friction beta application has optional qualification and copy fallback
   assert.match(script, /support@getresultary\.com/);
   assert.doesNotMatch(script, /fetch\(|XMLHttpRequest|localStorage|sessionStorage|innerHTML/);
 });
+
+test('new n8n monitoring guide is linked, indexed and honest',()=>{
+ const guide=readFileSync(new URL('./monitor-workflows/index.html',import.meta.url),'utf8');
+ assert.match(page,/href="\/n8n\/monitor-workflows\/"/);
+ assert.match(sitemap,/https:\/\/getresultary\.com\/n8n\/monitor-workflows\//);
+ assert.match(guide,/missing execution signal/);
+ assert.match(guide,/not independent proof/);
+ assert.match(guide,/technically uncertain/);
+ assert.match(guide,/href="\/n8n\/demo\/"/);
+ assert.match(guide,/not yet available/);
+});
