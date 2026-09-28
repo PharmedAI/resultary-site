@@ -23,7 +23,7 @@ test('n8n landing clearly marks availability and provides honest application',()
 });
 test('email application is explicitly user submitted and contains no covert tracking',()=>{
   assert.match(script,/mailto:support@getresultary\.com/);
-  assert.match(script,/window\.location\.href=href/);
+  assert.match(script,/window\.location\.href\s*=\s*href/);
   assert.match(script,/!consent/);
   assert.match(script,/no automatic form submission/i);
   assert.doesNotMatch(script,/fetch\(|XMLHttpRequest|localStorage|sessionStorage|innerHTML|analytics/);
