@@ -1,0 +1,61 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#07101c"><meta name="description" content="See a 30-second illustrative Resultary for n8n demonstration: n8n runs can succeed while the expected external business result is absent. Join the private beta.">
+<meta property="og:title" content="Resultary for n8n: 30-second product demo"><meta property="og:type" content="website"><meta property="og:url" content="https://getresultary.com/n8n/demo/"><link rel="canonical" href="https://getresultary.com/n8n/demo/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/site-v2.css">
+<title>30-second demo | Resultary for n8n</title>
+<style>
+.demo-wrap{max-width:1060px;margin:0 auto;padding:42px 24px 98px}
+.demo-wrap h1{font-size:clamp(30px,5vw,52px);line-height:1.14;letter-spacing:-.04em}
+.demo-lead{max-width:730px;line-height:1.65;color:#c3d5e8}
+.demo-kicker{font-weight:750;letter-spacing:.12em;text-transform:uppercase;font-size:.78rem;color:#76e8bf}
+.demo-layout{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:28px 0}
+.demo-panel{background:#14283b;border:1px solid #486077;border-radius:16px;padding:24px;min-width:0}
+.demo-panel h2{font-size:1.35rem;margin:0 0 20px}
+.demo-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.demo-metric{border:1px solid #3f5367;border-radius:12px;padding:15px;background:#0a1a2e}
+.demo-metric strong{display:block;margin:7px 0;font-size:1.1rem}
+.demo-metric span,.demo-muted{color:#c0cfe0;font-size:.92rem}
+.demo-btn{border:1px solid #628b95;border-radius:10px;padding:12px 16px;background:#1a3650;color:#eaf9ff;cursor:pointer;font:inherit;font-weight:700;margin:7px 9px 0 0}
+.demo-btn[aria-pressed="true"]{background:#84ebbb;color:#10261a;border-color:#84ebbb}
+.demo-badge{display:inline-block;font-weight:750;padding:7px 10px;border-radius:8px;background:#283c4b}
+.demo-warning{border-left:4px solid #e5bf71;padding:15px 18px;background:#302b2b;margin:28px 0;line-height:1.65}
+.demo-action{display:inline-block;background:#83efbd;color:#10261a!important;border-radius:10px;padding:15px 22px;margin:10px 12px 5px 0;font-weight:800;text-decoration:none}
+.demo-secondary{display:inline-block;border:1px solid #8de2d0;padding:14px 20px;border-radius:10px;margin:10px 12px 5px 0;text-decoration:none;color:#aaf1db}
+#state-explanation{min-height:100px;line-height:1.7}
+@media(max-width:720px){.demo-layout{grid-template-columns:1fr}.demo-grid{grid-template-columns:1fr 1fr}}
+</style><script defer src="/n8n/demo/demo.js"></script>
+</head><body class="site-v2">
+<a class="skip-link" href="#main">Skip to content</a><header class="site-header"><div class="container nav v2-nav">
+<a class="brand" href="/" aria-label="Resultary home"><span class="mark">R</span><span>resultary<span class="brand-dot">.</span></span></a>
+<nav aria-label="Primary navigation"><a href="/">Home</a><a href="/product/">For Jira</a><a href="/n8n/" aria-current="page">For n8n</a><a href="/integrations/">Integrations</a><a href="/start/" class="nav-cta">Get started</a></nav></div></header>
+<div class="edition-subnav" aria-label="n8n edition navigation"><a href="/n8n/">← n8n edition</a><a href="/product/">Switch to Jira</a><a href="/n8n/#install">Download starter</a><a href="/n8n/#apply">Apply for beta</a></div>
+<main class="demo-wrap" id="main">
+<span class="demo-kicker">Interactive example · No account needed</span>
+<h1>n8n says success.<br>What if your business result is missing?</h1>
+<p class="demo-lead">Explore a fictional order-processing example in 30 seconds. The n8n execution can finish successfully even if the record never arrives in the destination system. Resultary is designed to check the destination separately.</p>
+<div class="demo-warning"><strong>Illustrative simulation only.</strong> The three scenarios below are preset examples, not live product results, real monitoring or claims about your automation. This demonstration does not connect to n8n or collect any data.</div>
+<div class="demo-layout">
+<section class="demo-panel" aria-labelledby="step-title"><span class="demo-kicker">Your n8n workflow</span><h2 id="step-title">Order → Create external record</h2>
+<div class="demo-grid"><div class="demo-metric"><span>n8n execution</span><strong>Completed</strong></div><div class="demo-metric"><span>n8n error</span><strong>None reported</strong></div></div>
+<p class="demo-muted">Choose what happened independently in the authorized destination:</p>
+<div role="group" aria-label="Illustrative external result scenario">
+<button class="demo-btn" type="button" data-scenario="pending" aria-pressed="true">1. Awaiting result</button>
+<button class="demo-btn" type="button" data-scenario="missing" aria-pressed="false">2. Record missing</button>
+<button class="demo-btn" type="button" data-scenario="recovered" aria-pressed="false">3. Record recovered</button>
+</div></section>
+<section class="demo-panel" aria-live="polite" aria-atomic="true"><span class="demo-kicker">Resultary illustration</span>
+<h2>Independently checked outcome</h2><p id="state-badge" class="demo-badge">Pending verification</p>
+<div class="demo-grid">
+<div class="demo-metric"><span>n8n run received</span><strong>Yes</strong></div>
+<div class="demo-metric"><span>Expected external result</span><strong id="external-result">Not checked yet</strong></div>
+</div>
+<p id="state-explanation">The run was reported, but a successful n8n execution alone is not business proof. Resultary waits for separately authorized destination evidence.</p>
+</section></div>
+<section class="demo-panel"><h2>Want to test this on your own disposable n8n workflow?</h2>
+<p>Download the starter immediately. Active Resultary n8n customer access is still an invitation-only beta under development; the starter alone does not activate a server or provide business-result verification.</p>
+<a class="demo-action" href="/n8n/#apply">Apply for the private n8n beta →</a>
+<a class="demo-secondary" href="/n8n/resultary-n8n-starter.json" download="resultary-n8n-starter.json">Download free n8n starter ↓</a>
+<p class="demo-muted">One independent destination must be approved before any actual business status can be verified.</p>
+</section></main>
+<footer class="v2-footer"><div class="container"><nav class="edition-footer-links" aria-label="Navigate between Resultary editions"><a href="/">Home</a><a href="/product/">Jira edition</a><a href="/n8n/">n8n edition</a><a href="/start/">Choose an edition</a></nav><p>Resultary for n8n · Illustrative demonstration only · <a href="/privacy/">Privacy</a></p></div></footer></body></html>
