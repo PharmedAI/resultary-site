@@ -2,9 +2,9 @@ name: Resultary n8n landing checks
 on:
   push:
     branches: [main]
-    paths: ['n8n/**', 'integrations/index.html', 'index.html', 'sitemap.xml', '.github/workflows/n8n-landing-check.yml']
+    paths: ['n8n/**', 'start/**', 'integrations/index.html', 'index.html', 'sitemap.xml', '.github/workflows/n8n-landing-check.yml']
   pull_request:
-    paths: ['n8n/**', 'integrations/index.html', '.github/workflows/n8n-landing-check.yml']
+    paths: ['n8n/**', 'start/**', 'integrations/index.html', 'index.html', 'sitemap.xml', '.github/workflows/n8n-landing-check.yml']
 permissions:
   contents: read
 jobs:
