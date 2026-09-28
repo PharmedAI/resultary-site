@@ -15,6 +15,8 @@ test('n8n landing clearly marks availability and provides honest application',()
   assert.match(page,/required/);
   assert.match(page,/href="\/privacy\//);
   assert.match(integration,/href="\/n8n\/"[^>]*>Apply for n8n beta/);
+  assert.match(homepage,/href="\/n8n\/" class="v2-platform-link">Apply for n8n beta/);
+  assert.match(sitemap,/<loc>https:\/\/getresultary\.com\/n8n\/<\/loc>/);
   assert.doesNotMatch(page,/Guaranteed ROI|certified now|instant activation/i);
 });
 test('email application is explicitly user submitted and contains no covert tracking',()=>{
