@@ -15,7 +15,7 @@ test('n8n landing clearly marks availability and provides honest application',()
   assert.match(page,/required/);
   assert.match(page,/href="\/privacy\//);
   assert.match(integration,/href="\/n8n\/"[^>]*>Apply for n8n beta/);
-  assert.match(homepage,/href="\/n8n\/" class="v2-platform-link">Apply for n8n beta/);
+  assert.match(homepage,/href="\/n8n\/" class="v2-platform-link">Explore the n8n edition/);
   assert.match(sitemap,/<loc>https:\/\/getresultary\.com\/n8n\/<\/loc>/);
   assert.doesNotMatch(page,/Guaranteed ROI|certified now|instant activation/i);
 });
@@ -26,4 +26,18 @@ test('email application is explicitly user submitted and contains no covert trac
   assert.match(script,/no automatic form submission/i);
   assert.doesNotMatch(script,/fetch\(|XMLHttpRequest|localStorage|sessionStorage|innerHTML|analytics/);
   assert.doesNotMatch(script,/client_secret|api_token/);
+});
+
+test('separate n8n page offers an honest direct credential-free download',()=>{
+  const workflow=JSON.parse(readFileSync(new URL('./resultary-n8n-starter.json',import.meta.url),'utf8'));
+  assert.match(page,/href="\/n8n\/resultary-n8n-starter.json"/);
+  assert.match(page,/Public self-service activation is not live yet/);
+  assert.match(page,/importable template, not an installed or activated application/);
+  assert.match(homepage,/>For Jira<\/a><a href="\/n8n\/">For n8n<\/a>/);
+  assert.doesNotMatch(page,/<nav[^>]*>[^]*For Jira/);
+  assert.equal(workflow.active,false);
+  assert.ok(workflow.nodes.some(node=>node.type==='n8n-nodes-base.httpRequest'));
+  assert.ok(workflow.nodes.filter(node=>node.type==='n8n-nodes-base.httpRequest').every(node=>node.parameters.url.includes('REPLACE_WITH_YOUR_PRIVATE_RESULTARY_HOST')));
+  assert.ok(workflow.nodes.every(node=>!node.credentials));
+  assert.doesNotMatch(JSON.stringify(workflow),/Bearer [A-Za-z0-9]{20,}|github_pat_/);
 });

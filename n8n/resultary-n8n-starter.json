@@ -1,0 +1,125 @@
+{
+  "name": "Resultary for n8n — public starter template (connection required)",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "af61b605-1c56-427e-bad7-6169cf67f001",
+      "name": "Manual connection test",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        240,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://REPLACE_WITH_YOUR_PRIVATE_RESULTARY_HOST.invalid/v1/runs",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBearerAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ executionId: $execution.id, workflowId: $workflow.id }) }}",
+        "options": {
+          "timeout": 10000
+        }
+      },
+      "id": "af61b605-1c56-427e-bad7-6169cf67f002",
+      "name": "Resultary — report this test run",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        500,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "amount": 20,
+        "unit": "seconds"
+      },
+      "id": "af61b605-1c56-427e-bad7-6169cf67f003",
+      "name": "Wait for independent proof",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        760,
+        300
+      ],
+      "webhookId": "af61b605-1c56-427e-bad7-6169cf67f006"
+    },
+    {
+      "parameters": {
+        "url": "={{ 'https://REPLACE_WITH_YOUR_PRIVATE_RESULTARY_HOST.invalid/v1/runs/' + $('Resultary — report this test run').first().json.runId }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBearerAuth",
+        "options": {
+          "timeout": 10000
+        }
+      },
+      "id": "af61b605-1c56-427e-bad7-6169cf67f004",
+      "name": "Resultary — read independently verified status",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1020,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "content": "UNCONFIGURED PUBLIC STARTER — this workflow does not work until you have an ACTIVE Resultary n8n beta account and its approved HTTPS host. Replace the placeholder host on both HTTP Request nodes and add your Resultary n8n API key only in an n8n Generic Bearer Auth credential; never put tokens into JSON. Run a disposable test only. A received run is NOT verified business success. A separately authorized proof destination is required. The n8n hosted customer beta is not live yet.",
+        "height": 330,
+        "width": 550
+      },
+      "id": "af61b605-1c56-427e-bad7-6169cf67f005",
+      "name": "Read before running",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        240,
+        -100
+      ]
+    }
+  ],
+  "connections": {
+    "Manual connection test": {
+      "main": [
+        [
+          {
+            "node": "Resultary — report this test run",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Resultary — report this test run": {
+      "main": [
+        [
+          {
+            "node": "Wait for independent proof",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait for independent proof": {
+      "main": [
+        [
+          {
+            "node": "Resultary — read independently verified status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {},
+  "pinData": {},
+  "tags": []
+}
