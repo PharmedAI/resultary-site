@@ -201,3 +201,32 @@
 .site-v2 .page .copy p,.site-v2 .page .copy li{color:#b1c3d6;line-height:1.82}
 .site-v2 .page a:not(.button):not(.text-link){text-underline-offset:3px}
 @media(max-width:680px){.site-v2 .page{padding-top:65px;padding-bottom:86px}}
+
+/* Cross-edition navigation — always keep a route out of either product. */
+.site-v2 .site-header .nav a[aria-current="page"]{color:#83efd0;text-decoration-thickness:2px;text-underline-offset:6px}
+.edition-subnav{display:flex;justify-content:center;align-items:center;gap:20px;flex-wrap:wrap;padding:13px 20px;background:#15253b;border-bottom:1px solid rgba(156,194,225,.2)}
+.edition-subnav a{color:#b7e8ef;text-decoration:none;font-size:.92rem;font-weight:650}
+.edition-subnav a:hover,.edition-subnav a:focus-visible{text-decoration:underline}
+.edition-footer-links{display:flex;gap:18px;flex-wrap:wrap;margin:0 0 27px;padding-bottom:20px;border-bottom:1px solid rgba(150,188,221,.18)}
+.edition-footer-links a{color:#b8e5ef;text-underline-offset:4px}
+@media(max-width:950px){
+  .site-header .v2-nav{flex-wrap:wrap;justify-content:center;padding:13px 0;gap:12px}
+  .site-header .v2-nav nav{display:flex;gap:13px;flex-wrap:wrap;justify-content:center}
+  .site-header .v2-nav .brand{flex-shrink:0}
+}
+@media(max-width:560px){
+  .site-header .v2-nav nav{gap:10px 15px}
+  .site-header .v2-nav nav a{font-size:.81rem}
+  .edition-subnav{gap:12px}
+}
+
+/* Override legacy stylesheet rules that hid navigation items on phones:
+   edition switching must remain available at EVERY viewport. */
+@media(max-width:960px){
+  .site-v2 .site-header .v2-nav nav a{display:inline-flex!important;align-items:center}
+  .site-v2 .edition-footer-links a{display:inline-flex!important}
+}
+@media(max-width:680px){
+  .site-v2 .site-header .v2-nav nav a:not(.nav-cta){display:inline-flex!important}
+  .site-v2 .edition-footer-links a:not(.nav-cta){display:inline-flex!important}
+}
