@@ -8,7 +8,8 @@ const homepage=readFileSync(new URL('../index.html',import.meta.url),'utf8');
 const sitemap=readFileSync(new URL('../sitemap.xml',import.meta.url),'utf8');
 test('n8n landing clearly marks availability and provides honest application',()=>{
   assert.match(page,/applications for a limited private beta are open/i);
-  assert.match(page,/not yet deployed/i);
+  assert.match(page,/isolated backend staging environment is deployed/i);
+  assert.match(page,/customer access is not yet open/i);
   assert.match(page,/not yet published or certified/i);
   assert.match(page,/mailto|opens your email app/i);
   assert.match(page,/id="consent"/);
