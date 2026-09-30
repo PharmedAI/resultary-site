@@ -1,0 +1,2 @@
+Resultary public proof fixture
+Owner-only synthetic demo. No production or customer data.
