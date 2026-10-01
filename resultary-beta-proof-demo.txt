@@ -1,0 +1,5 @@
+Resultary private beta proof demo source.
+
+Markers are operator-added only for isolated demo recovery tests.
+Format:
+Resultary-Beta-Proof: <integrationId>:<runId>:resultary_beta_proof_demo
