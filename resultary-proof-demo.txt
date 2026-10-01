@@ -1,3 +1,4 @@
 Resultary public proof fixture
 Owner-only synthetic demo. No production or customer data.
 Resultary-Proof: 7:resultary_github_issue_test
+Resultary-Proof: live_95cachebust_20261002:resultary_github_issue_test
