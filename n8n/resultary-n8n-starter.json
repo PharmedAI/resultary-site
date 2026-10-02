@@ -69,7 +69,7 @@
     },
     {
       "parameters": {
-        "content": "UNCONFIGURED PUBLIC STARTER — this workflow does not work until you have an ACTIVE Resultary n8n beta account and its approved HTTPS host. Replace the placeholder host on both HTTP Request nodes and add your Resultary n8n API key only in an n8n Generic Bearer Auth credential; never put tokens into JSON. Run a disposable test only. A received run is NOT verified business success. A separately authorized proof destination is required. The n8n hosted customer beta is not live yet.",
+        "content": "UNCONFIGURED PUBLIC STARTER — start the Resultary n8n self-service trial first, then use the ready-made private connection workflow shown after activation. This public starter contains no credentials and still uses a placeholder host. Never put tokens into JSON; store the Resultary key only in an n8n Generic Bearer Auth credential. Run a disposable test first. A received run is NOT verified business success; a separately authorized proof destination is required. The n8n community node is not yet published or certified.",
         "height": 330,
         "width": 550
       },
