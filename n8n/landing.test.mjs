@@ -14,9 +14,10 @@ test('n8n landing exposes a direct honest self-service trial with no invitation 
   assert.ok(page.includes('href="'+trial+'"'));
   assert.match(page,/\$29\/month after the trial/i);
   assert.match(page,/Payment method required/i);
-  assert.match(page,/not yet published or certified/i);
+  assert.match(page,/published on npm/i);
+  assert.match(page,/n8n Cloud verification is in progress/i);
   assert.doesNotMatch(page,/Apply for private beta|Invitation required|Paste your invitation|id="apply"|id="beta-form"/i);
-  assert.match(page,/disposable test workflow/i);
+  assert.match(page,/Use test data during first setup/i);
   assert.match(page,/href="\/privacy\//);
   assert.doesNotMatch(page,/Guaranteed ROI|certified now|instant activation/i);
 });
@@ -31,10 +32,11 @@ test('site-wide n8n conversion links lead directly to the self-service trial',()
   assert.match(sitemap,/<loc>https:\/\/getresultary\.com\/n8n\/<\/loc>/);
 });
 
-test('separate n8n page still offers an honest credential-free public starter',()=>{
+test('manual starter remains available only as a temporary fallback',()=>{
   const workflow=JSON.parse(readFileSync(new URL('./resultary-n8n-starter.json',import.meta.url),'utf8'));
   assert.match(page,/href="\/n8n\/resultary-n8n-starter.json"/);
-  assert.match(page,/importable template, not an installed or activated application/);
+  assert.match(page,/Temporary beta setup fallback/);
+  assert.match(page,/Most users should start the trial first/);
   assert.equal(workflow.active,false);
   assert.ok(workflow.nodes.some(node=>node.type==='n8n-nodes-base.httpRequest'));
   assert.ok(workflow.nodes.filter(node=>node.type==='n8n-nodes-base.httpRequest')
