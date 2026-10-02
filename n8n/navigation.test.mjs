@@ -46,9 +46,9 @@ test('product pages make it possible to move between Jira and n8n without relyin
   assert.match(jiraSwitch??'',/href="\/n8n\/">Switch to n8n/);
   assert.match(n8nSwitch??'',/href="\/product\/">Switch to Jira/);
   assert.match(n8nSwitch??'',/href="\/start\/">← All editions/);
-  assert.match(n8nSwitch??'',/href="#install">Download starter/);
+  assert.doesNotMatch(n8nSwitch??'',/Download starter|href="#install"/);
   assert.match(n8nSwitch??'',/href="https:\/\/api\.getresultary\.com\/private\/n8n\/start">Start free trial/);
-  assert.match(n8n,/id="install"/);
+  assert.doesNotMatch(n8n,/id="install"/);
   assert.match(n8n,/id="trial"/);
   assert.doesNotMatch(n8n,/id="apply"|Paste your invitation|Invitation required/);
   assert.match(jira,/<a class="brand" href="\/" aria-label="Resultary home">/);
