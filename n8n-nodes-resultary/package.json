@@ -1,0 +1,63 @@
+{
+  "name": "n8n-nodes-resultary",
+  "version": "0.1.0",
+  "description": "Native n8n node for Resultary outcome verification",
+  "license": "MIT",
+  "homepage": "https://getresultary.com/n8n/",
+  "keywords": [
+    "n8n-community-node-package",
+    "n8n",
+    "resultary",
+    "automation",
+    "monitoring",
+    "outcome-verification"
+  ],
+  "author": {
+    "name": "Resultary",
+    "email": "support@getresultary.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PharmedAI/resultary-site.git",
+    "directory": "n8n-nodes-resultary"
+  },
+  "bugs": {
+    "url": "https://github.com/PharmedAI/resultary-site/issues"
+  },
+  "engines": {
+    "node": ">=22.14.0"
+  },
+  "scripts": {
+    "build": "n8n-node build",
+    "dev": "n8n-node dev",
+    "lint": "n8n-node lint",
+    "lint:fix": "n8n-node lint --fix",
+    "prepublishOnly": "n8n-node prerelease"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "strict": true,
+    "credentials": [
+      "dist/credentials/ResultaryOAuth2Api.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/Resultary/Resultary.node.js"
+    ]
+  },
+  "devDependencies": {
+    "@n8n/node-cli": "*",
+    "eslint": "9.39.4",
+    "prettier": "3.8.3",
+    "typescript": "5.9.3"
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  }
+}
