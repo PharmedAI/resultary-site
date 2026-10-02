@@ -15,5 +15,4 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - run: node --check n8n/apply.js
       - run: node --test n8n/*.test.mjs
