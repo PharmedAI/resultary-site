@@ -14,11 +14,13 @@ test('n8n visitor can understand the result before signup with a no-data 30-seco
   assert.match(sitemap,/https:\/\/getresultary\.com\/n8n\/demo\//);
   assert.match(html,/Illustrative simulation only/);
   assert.match(html,/not live product results/);
-  assert.match(html,/href="\/n8n\/#apply"/);
+  assert.match(html,/href="https:\/\/api\.getresultary\.com\/private\/n8n\/start"/);
   assert.match(html,/href="\/n8n\/resultary-n8n-starter.json"/);
   assert.match(html,/href="\/product\/">For Jira/);
   assert.match(html,/href="\/n8n\/">← n8n edition/);
-  assert.match(html,/customer access is still an invitation-only beta/);
+  assert.match(html,/self-service beta/i);
+  assert.match(html,/\$29\/month/);
+  assert.doesNotMatch(html,/invitation-only|Apply for the private n8n beta/i);
   assert.match(html,/No account needed/);
 });
 test('fictional states distinguish missing business outcome from missing transport signal',()=>{
