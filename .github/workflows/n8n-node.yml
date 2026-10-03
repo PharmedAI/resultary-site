@@ -1,0 +1,27 @@
+name: Resultary n8n node checks
+
+on:
+  pull_request:
+    paths:
+      - 'n8n-nodes-resultary/**'
+      - '.github/workflows/n8n-node.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'n8n-nodes-resultary/**'
+      - '.github/workflows/n8n-node.yml'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: n8n-nodes-resultary
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: npm install
+      - run: npm run build
+      - run: npm run lint
