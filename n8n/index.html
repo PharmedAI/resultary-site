@@ -32,9 +32,9 @@
 (async()=>{
   const priceEl=document.getElementById('localized-price');
   const cfg=window.RESULTARY_PADDLE_CONFIG;
-  if(!priceEl||!window.Paddle||!cfg||cfg.environment!=='sandbox'||typeof cfg.clientToken!=='string')return;
+  if(!priceEl||!window.Paddle||!cfg||!['sandbox','production'].includes(cfg.environment)||typeof cfg.clientToken!=='string')return;
   try{
-    Paddle.Environment.set('sandbox');
+    if(cfg.environment==='sandbox')Paddle.Environment.set('sandbox');
     Paddle.Initialize({token:cfg.clientToken});
     const response=await fetch('https://api.getresultary.com/v1/public/pricing',{method:'GET',mode:'cors',cache:'no-store'});
     if(!response.ok)return;
