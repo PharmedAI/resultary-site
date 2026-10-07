@@ -2,8 +2,10 @@
   const status=document.getElementById('checkout-status');
   const cfg=window.RESULTARY_PADDLE_CONFIG;
   const fail=message=>{status.textContent=message;};
-  if(!cfg||cfg.environment!=='sandbox'||typeof cfg.clientToken!=='string'||!cfg.clientToken.startsWith('test_')){
-    fail('Checkout is not active yet. Resultary is finishing its Paddle sandbox configuration.');
+  if(!cfg||!['sandbox','production'].includes(cfg.environment)||typeof cfg.clientToken!=='string'||
+     (cfg.environment==='sandbox'&&!cfg.clientToken.startsWith('test_'))||
+     (cfg.environment==='production'&&!cfg.clientToken.startsWith('live_'))){
+    fail('Checkout is not active yet. Resultary is finishing its Paddle configuration.');
     return;
   }
   if(!window.Paddle){
@@ -18,7 +20,7 @@
   }
 
   try{
-    Paddle.Environment.set('sandbox');
+    if(cfg.environment==='sandbox')Paddle.Environment.set('sandbox');
     Paddle.Initialize({
       token:cfg.clientToken,
       checkout:{
