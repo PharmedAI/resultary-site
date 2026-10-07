@@ -1,5 +1,5 @@
 window.RESULTARY_PADDLE_CONFIG=Object.freeze({
-  environment:"sandbox",
-  clientToken:"test_280dba4fb88d24dac0aa95c9866",
+  environment:"production",
+  clientToken:"live_7c905bda7016308cf61db3929ac",
   successUrl:"https://getresultary.com/pay/success/"
 });
