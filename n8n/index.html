@@ -4,7 +4,7 @@
 <meta name="theme-color" content="#07101c"><meta name="description" content="Start a 15-day free trial of Resultary for n8n. Verify automation outcomes independently. $29/month after trial; payment method required.">
 <meta property="og:type" content="website"><meta property="og:title" content="Resultary for n8n — 15-day free trial"><meta property="og:description" content="Verify actual automation outcomes with Resultary for n8n. Start a 15-day free trial; $29/month after trial.">
 <meta property="og:url" content="https://getresultary.com/n8n/"><link rel="canonical" href="https://getresultary.com/n8n/">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/site-v2.css">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/site-v2.css"><script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script><script src="/pay/config.js"></script>
 <title>Resultary for n8n | 15-day free trial</title>
 <style>
 .n8n-main{max-width:1050px;padding:44px 24px 95px;margin:auto}.n8n-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,.9fr);gap:42px;align-items:start}
@@ -26,6 +26,26 @@
 <p><a href="https://api.getresultary.com/private/n8n/start" style="display:inline-block;background:#80edbd;color:#10261b;font-weight:800;border-radius:10px;padding:15px 20px;text-decoration:none;margin:12px 12px 6px 0">Start 15-day free trial →</a><a href="/n8n/demo/" style="display:inline-block;border:1px solid #80edbd;border-radius:10px;padding:14px 20px;text-decoration:none;color:#a7f5d0;margin:12px 0 6px">See a 30-second example</a></p><p><small>15 days free, then $29/month. Payment method required. Cancel before the trial ends to avoid the first charge.</small></p><p class="n8n-warning"><strong>Beta availability:</strong> self-service access is live and the Resultary community node is published on npm. n8n Cloud verification is in progress, so Cloud onboarding temporarily uses a guided workflow import. Use test data during first setup.</p>
 <p><a href="/n8n/workflow-success-no-result/">Why does n8n say success when the result is missing? Read the free troubleshooting guide →</a></p><p><a href="/n8n/monitor-workflows/">Free guide: monitor n8n workflows without false alarms →</a></p><details style="margin:24px 0"><summary style="cursor:pointer;font-weight:700">Temporary beta setup fallback</summary><p>If you need the manual beta template, you can <a href="/n8n/resultary-n8n-starter.json" download="resultary-n8n-starter.json">download the n8n workflow JSON</a>. Most users should start the trial first and follow the guided setup.</p></details><h2>What happens next?</h2><p>Start the 15-day free trial and complete the secure Paddle checkout. Resultary then guides you through the shortest available n8n connection path. No invitation code or application email is required.</p>
 <p><a href="/trust/">Security and trust</a> · <a href="/privacy/">Privacy policy</a> · <a href="/integrations/">Other integrations</a></p></div>
-<section class="n8n-panel" id="trial" aria-labelledby="trial-title"><span class="n8n-kicker">Self-service beta</span><h2 id="trial-title">Start free for 15 days</h2><p><strong>$29/month after the trial.</strong> Paddle securely collects your email and payment method. Resultary does not issue your n8n key until Paddle confirms the trial.</p><p><a href="https://api.getresultary.com/private/n8n/start" style="display:inline-block;background:#80edbd;color:#10261b;font-weight:800;border-radius:9px;padding:14px 19px;text-decoration:none">Start 15-day free trial →</a></p><small>No invitation code. Payment method required. Cancel before the trial ends to avoid the first charge.</small></section>
+<section class="n8n-panel" id="trial" aria-labelledby="trial-title"><span class="n8n-kicker">Self-service beta</span><h2 id="trial-title">Start free for 15 days</h2><p><strong><span id="localized-price">$29/month</span> after the trial.</strong> Paddle securely collects your email and payment method. Resultary does not issue your n8n key until Paddle confirms the trial.</p><p><a href="https://api.getresultary.com/private/n8n/start" style="display:inline-block;background:#80edbd;color:#10261b;font-weight:800;border-radius:9px;padding:14px 19px;text-decoration:none">Start 15-day free trial →</a></p><small>No invitation code. Payment method required. Cancel before the trial ends to avoid the first charge.</small></section>
 </section><section class="n8n-info" aria-label="How self-service beta works"><article><strong>1. Start trial</strong><p>Open Paddle directly. No invitation or application form.</p></article><article><strong>2. Connect n8n</strong><p>Follow the guided connection. While n8n Cloud verification is pending, setup uses a ready-made workflow import.</p></article><article><strong>3. Verify</strong><p>Connect an independent proof source and review outcomes in your Resultary dashboard.</p></article></section></main>
-<footer class="v2-footer"><div class="container"><nav class="edition-footer-links" aria-label="Navigate between Resultary editions"><a href="/">Home</a><a href="/product/">Jira edition</a><a href="/n8n/">n8n edition</a><a href="/start/">Choose an edition</a></nav><p>Resultary for n8n · A separate integration from our Jira edition. n8n is a trademark of its respective owner. Resultary is independent of n8n.</p><p><a href="/start/">Choose an edition</a> · <a href="/privacy/">Privacy</a> · <a href="/support/">Support</a></p></div></footer></body></html>
+<footer class="v2-footer"><div class="container"><nav class="edition-footer-links" aria-label="Navigate between Resultary editions"><a href="/">Home</a><a href="/product/">Jira edition</a><a href="/n8n/">n8n edition</a><a href="/start/">Choose an edition</a></nav><p>Resultary for n8n · A separate integration from our Jira edition. n8n is a trademark of its respective owner. Resultary is independent of n8n.</p><p><a href="/start/">Choose an edition</a> · <a href="/privacy/">Privacy</a> · <a href="/support/">Support</a></p></div></footer><script>
+(async()=>{
+  const priceEl=document.getElementById('localized-price');
+  const cfg=window.RESULTARY_PADDLE_CONFIG;
+  if(!priceEl||!window.Paddle||!cfg||cfg.environment!=='sandbox'||typeof cfg.clientToken!=='string')return;
+  try{
+    Paddle.Environment.set('sandbox');
+    Paddle.Initialize({token:cfg.clientToken});
+    const response=await fetch('https://api.getresultary.com/v1/public/pricing',{method:'GET',mode:'cors',cache:'no-store'});
+    if(!response.ok)return;
+    const pricing=await response.json();
+    if(typeof pricing.priceId!=='string'||!pricing.priceId.startsWith('pri_'))return;
+    const preview=await Paddle.PricePreview({items:[{priceId:pricing.priceId,quantity:1}]});
+    const line=preview?.data?.details?.lineItems?.[0];
+    const localized=line?.formattedTotals?.total||line?.formattedUnitTotals?.total;
+    if(typeof localized==='string'&&localized.trim()){
+      priceEl.textContent=localized+'/month';
+    }
+  }catch{}
+})();
+</script></body></html>
