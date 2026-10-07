@@ -10,6 +10,13 @@
     fail('Secure checkout could not be loaded. Please refresh the page.');
     return;
   }
+
+  const transactionId=new URLSearchParams(window.location.search).get('_ptxn');
+  if(!/^txn_[a-z0-9]{26}$/.test(transactionId||'')){
+    fail('This checkout link is invalid or expired. Please return to Resultary and start again.');
+    return;
+  }
+
   try{
     Paddle.Environment.set('sandbox');
     Paddle.Initialize({
@@ -30,9 +37,9 @@
         }
       }
     });
+
     status.textContent='Secure Paddle checkout is opening…';
-    // When this page is loaded with ?_ptxn=txn_..., Paddle.js opens
-    // the server-created transaction automatically.
+    Paddle.Checkout.open({transactionId});
   }catch{
     fail('Secure checkout could not be initialized. Please return to Resultary and try again.');
   }
